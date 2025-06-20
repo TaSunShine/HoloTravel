@@ -27,7 +27,7 @@ DB에 데이터 조회/ 삽입 성공
 
 > ## php artisan tinker
 
-> ## DB:table('테이블명')->get();
+> ## DB::table('테이블명')->get();
 
 
 
