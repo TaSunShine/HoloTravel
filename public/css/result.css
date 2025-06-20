@@ -1,0 +1,10 @@
+body {
+  border: 10px solid transparent; /* 반드시 있어야 함 */
+  border-image: url('https://embed.pixiv.net/spotlight.php?id=10534&lang=ko') 30 round;
+}
+.container{
+    max-width: 800px;
+    margin: 11px auto;
+    text-align: center;
+    padding: 43px;
+}
