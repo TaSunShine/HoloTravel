@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
+
+    // Json file type return, fetch
     public function index(){
         $items = products::all();
         return response()->json($items);
@@ -16,8 +18,8 @@ class ItemController extends Controller
         return response()->json($item);
     }
 
-    public function indexview(){
+    public function itemsview(){
         $items = products::all();
-        return view('main',compact('items'));
+        return view('myproducts',compact('items'));
     }
 }

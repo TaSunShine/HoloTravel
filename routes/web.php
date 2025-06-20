@@ -15,7 +15,7 @@ Route::get('/', function () {
 
 
 Route::apiResource('items', ItemController::class);
-Route::get('/main', [ItemController::class, 'indexView']);
+Route::get('/myproducts', [ItemController::class, 'itemsview']);
 
 
 Route::get('/gotohome',function(){   
@@ -25,8 +25,8 @@ Route::get('/welcome',function(){
     return view('welcome');
 });
 
-Route::get('/main/trade/process',function(){   
-    return view('main');
+Route::get('/myproducts/trade/process',function(){   
+    return view('myproducts');
 });
 
 Route::get('/123',function(){   

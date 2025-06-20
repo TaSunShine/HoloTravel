@@ -20,6 +20,8 @@
     2025/04/13 泥棒に 「500G」 盗まれた。。。
   </div>  
 
+  <br>
+
 
   <form id="trade-form" method="POST" action="/trade/process">
     @csrf
@@ -41,7 +43,7 @@
         <!-- 価格 -->
         <td>{{ $item->cost }}</td>
         <!-- 所持数 -->
-        <td>{{ $item->stock }}</td>
+        <td>{{ $myitem->stock }}</td>
         <td>
             <input type="number" name="trade_quantity[{{ $item->name }}]" min="0" max="100" value="0" />
         </td>
