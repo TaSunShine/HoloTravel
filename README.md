@@ -29,6 +29,16 @@ DB에 데이터 조회/ 삽입 성공
 
 > ## DB::table('테이블명')->get();
 
+### ***Q. Laravel에서의 인자값 넘기기***
+
+## 스프링과 비슷하게 컨트롤러부분에서 Model에 해당하는 부분을 직접 선언 후 
+
+## compact에 넣음으로써 블레이드 템플릿에서는 items, 라는 값으로 받을 수 있게 됨.
+
+> ##     public function indexview(){
+        $items = products::all();
+        return view('main',compact('items'));
+    }
 
 
 ### 순서 
