@@ -35,10 +35,12 @@ DB에 데이터 조회/ 삽입 성공
 
 ## compact에 넣음으로써 블레이드 템플릿에서는 items, 라는 값으로 받을 수 있게 됨.
 
-> ##     public function indexview(){
-        $items = products::all();
-        return view('main',compact('items'));
-    }
+```
+        public function indexview(){        
+                $items = products::all();
+                return view('main',compact('items'));
+        }
+```
 
 
 ### 순서 
