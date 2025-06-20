@@ -24,6 +24,12 @@ return new class extends Migration
             $table->integer('have_money');
             $table->text('myinfo');
         });        
+        Schema::create('myitems', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('product_id');
+            $table->integer('have_money');
+            $table->text('myinfo');
+        });               
     }
 
     /**

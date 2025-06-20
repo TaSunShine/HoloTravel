@@ -42,10 +42,11 @@
         <td>{{ $item->name }}</td>
         <!-- 価格 -->
         <td>{{ $item->cost }}</td>
-        <!-- 所持数 -->
-        <td>{{ $myitem->stock }}</td>
         <td>
-            <input type="number" name="trade_quantity[{{ $item->name }}]" min="0" max="100" value="0" />
+              <p>적당히1개</p>  
+        </td>
+        <td>
+             <input type="number" name="trade_quantity[{{ $item->name }}]" min="0" max="100" value="0" />
         </td>
         <td>
             <button type="submit" name="action" value="buy_{{ $item->name }}">購入</button>
