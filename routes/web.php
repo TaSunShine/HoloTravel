@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\ItemController;
 
 
 
@@ -13,15 +13,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::apiResource('items', ItemController::class);
+Route::get('/main', [ItemController::class, 'indexView']);
+
+
 Route::get('/gotohome',function(){   
     return view('test');
 });
 Route::get('/welcome',function(){   
     return view('welcome');
 });
-Route::get('/main',function(){   
-    return view('main');
-});
+
 Route::get('/main/trade/process',function(){   
     return view('main');
 });
@@ -31,15 +34,6 @@ Route::get('/123',function(){
 });
 
 
+
 Route::get('/result',
 [FormController::class, 'handle']);
-
-Route::get('/people',[PostController::class, 'index']);
-
-
-
-
-
-
-
-
