@@ -6,10 +6,13 @@
 IDE : 비주얼 스튜디오 코드
 DB : SQlite
 
-
+---
 2025.06.20
+
 DB에 데이터 조회/ 삽입 성공
+
 Q. 어떻게 터미널만으로 DB 구조를 확인할 수 있을까?
+
 -> php artisan tinker
 -> DB::select('SELECT name FROM sqlite_master WHERE type = "table"');
 
