@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Enums\Economy;
+
 class City extends Model
 {
     protected $table = 'cities';
@@ -19,5 +20,11 @@ class City extends Model
         'economy',
         'description',
     ];
-    
+    public function products(){
+
+      return $this->belongstomany(product::class,'city_items','city_id','product_id');
+
+    }
+
+
 }
