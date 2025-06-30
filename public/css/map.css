@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Kaisei+Opti&display=swap');
+
+body {
+  background: #f7f1e1;
+  font-family: 'Merriweather', serif;
+  color: #4b3b2b;
+  margin: 20px;
+  position: relative;
+}
+
+body, html {
+  margin: 0; padding: 0; height: 100%;
+}
+
+/* 고풍스러운 종이 질감 */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: url('/images/texture-paper.png') repeat;
+  opacity: 0.07;
+  z-index: -1;
+}
+.header {
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  margin-bottom:20px;
+}
+
+.main-layout {
+  display: flex;
+  height: calc(100vh - 50px); /* 헤더 높이 제외 */
+}
+
+.player-info {
+  width: 250px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-right: 1px solid #ccc;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+.container {
+  display: flex;
+  gap: 40px;
+}
+
+.map {
+  position: relative;
+  overflow: hidden;
+  width: 1000px;
+  height: 600px;
+  background: url('/images/lok_map_oldpaper.jpg') no-repeat center center;
+  background-size: cover;
+  border: 4px double #6e5849;
+  box-shadow: 4px 4px 12px rgba(0,0,0,0.25);
+  border-radius: 10px;
+}
+
+/* 도시 마커 */
+.city-marker {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #b35c23;
+  border: 2px solid #fff9f1;
+  box-shadow: 0 0 6px rgba(179, 92, 35, 0.8);
+  border-radius: 50%;
+  cursor: pointer;
+  transform-origin: center center;
+  animation: pulse 3s infinite ease-in-out;
+  transition: transform 0.2s ease;
+}
+
+.city-marker:hover {
+  transform: scale(1.3);
+  box-shadow: 0 0 15px rgba(179, 92, 35, 1);
+  z-index: 10;
+}
+
+/* 호버 시 도시 이름 툴팁 */
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  background: rgba(75, 59, 43, 0.9);
+  color: #f7f1e1;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-size: 14px;
+  pointer-events: none;
+  transform: translate(-50%, -125%);
+  z-index: 15;
+  font-weight: 600;
+  font-family: 'Merriweather', serif;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+  transition: opacity 0.2s;
+}
+.city-marker:hover .tooltip {
+  visibility: visible;
+}
+
+/* 정보 패널 */
+.info-panel {
+  width: 350px;
+  background: linear-gradient(#f4eade, #f1dbbd);
+  border: 4px double #6e5849;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 4px 4px 15px rgba(0,0,0,0.15);
+  font-size: 16px;
+  font-family: 'Merriweather', serif;
+}
+
+/* 패널 제목 */
+.info-panel h3 {
+  font-family: 'Kaisei Opti', serif;
+  margin-top: 0;
+  font-size: 24px;
+  color: #a0522d;
+  border-bottom: 2px solid #b35c23;
+  padding-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+/* 일반 텍스트 */
+.info-panel p {
+  line-height: 1.4;
+  margin: 8px 0;
+}
+.info-panel strong {
+  color: #6b4c28;
+}
+
+/* 애니메이션 */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 6px rgba(179, 92, 35, 0.6);
+  }
+  50% {
+    transform: scale(1.2);
+    box-shadow: 0 0 12px rgba(179, 92, 35, 0.9);
+  }
+}
+
+
+.event-panel {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff9f1;
+  border: 2px solid #a0522d;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-family: 'Kaisei Opti', serif;
+  font-size: 16px;
+  color: #4b3b2b;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+  z-index: 100;
+  animation: fade-in-down 0.6s ease;
+}
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+
+.player-info {
+  background: #fef6e4;
+  border: 2px solid #a0522d;
+  padding: 15px 20px;
+  border-radius: 12px;
+  width: 300px;
+  font-size: 15px;
+  font-family: 'Merriweather', serif;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.15);
+}
+.player-info h3 {
+  font-family: 'Kaisei Opti', serif;
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #a0522d;
+}
+.player-info p {
+  margin: 5px 0;
+}
+
+.ButtonGroup{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+
+.trade-button {
+  background: #b35c23;
+  color: #fff9f1;
+  border: none;
+  padding: 10px 20px;
+  font-family: 'Kaisei Opti', serif;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 12px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  transition: background 0.2s ease;
+}
+.trade-button:hover {
+  background: #8a441b;
+}
+
+.modal-container {
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  background-color: rgba(0, 0, 0, 0.6); /* 반투명 어두운 배경 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  /* 기본적으로 숨김 */
+  display: none;
+}
+
+.modal-content {
+  background-color: #f5f1e6; /* 따뜻한 베이지 색 */
+  border: 4px solid #a07d58; /* 중세 느낌의 테두리 */
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  padding: 24px 32px;
+  width: 380px;
+  font-family: 'Times New Roman', serif;
+  color: #3b2f2f;
+}
+
+.modal-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #a07d58;
+  padding-bottom: 8px;
+}
+
+.modal-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 24px;
+}
+
+.modal-content ul li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.modal-close {
+  background-color: #a07d58;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.25s ease;
+}
+
+.modal-close:hover {
+  background-color: #8b6a46;
+}
+
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #4a5568; /* 어두운 회색 */
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #2d3748; /* 더 어두운 회색 */
+}

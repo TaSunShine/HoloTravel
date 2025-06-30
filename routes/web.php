@@ -1,39 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FormController;
-use App\Http\Controllers\ItemController;
+use App\Http\Controllers\worldmapController;
+use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\ProductController;
 
+Route::get('/map',
+[worldmapController::class, 'map'])->name('map');
 
+Route::get('/myinfo',
+[PlayerController::class, 'info'])->name('myinfo'); 
 
-Route::get('/form',[FormController::class, 'showForm']);
-Route::post('/submit',[FormController::class, 'store']);
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-Route::apiResource('items', ItemController::class);
-Route::get('/myproducts', [ItemController::class, 'itemsview']);
-
-
-Route::get('/gotohome',function(){   
-    return view('test');
-});
-Route::get('/welcome',function(){   
-    return view('welcome');
-});
-
-Route::get('/myproducts/trade/process',function(){   
-    return view('myproducts');
-});
-
-Route::get('/123',function(){   
-    return view('rensu');
-});
-
-
-
-Route::get('/result',
-[FormController::class, 'handle']);
+Route::get('/productList',
+[ProductController::class, 'productList'])->name('products');
